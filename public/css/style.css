@@ -1,0 +1,144 @@
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+.nav-link {
+    width: 100%;
+    height: 100%;
+    color: black;
+    font-size: 20px;
+    font-weight: 700;
+    word-wrap: break-word;
+    margin: 10px;
+}
+.Gempabumiterkini {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 40px;
+    background-color: #f8f9fa;
+    border-radius: 8px 8px 0 0;
+    margin: 20px 40px 0 40px;
+}
+
+.Gempabumiterkini h1 {
+    margin: 0;
+    font-weight: bold;
+    font-size: 32px;
+    margin-right: 20px;
+}
+
+.Gempabumiterkini button {
+    padding: 8px 20px;
+    font-weight: 500;
+    border-radius: 6px;
+}
+
+.nav-link.active {
+    color: black;
+    
+}
+.navbar-nav {
+    margin-right: 50px; 
+}
+.navbar-brand-logo {
+    margin-left: 30px;
+
+}
+.navbar {
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); 
+}
+
+.earthquake-list {
+    margin: 20px 0;
+    padding: 0 20px;
+}
+
+.table {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.table th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+}
+
+.table td, .table th {
+    padding: 12px;
+}
+
+.earthquake-container {
+    margin: 0 40px;
+    padding: 20px 40px;
+    background-color: #fff;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.table-responsive {
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.table thead th {
+    background-color: #f8f9fa;
+    border-bottom: 2px solid #dee2e6;
+}
+
+.table tbody tr:hover {
+    background-color: #f5f5f5;
+}
+
+#map {
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.table-responsive {
+    margin: 15px;
+    max-height: calc(100vh - 250px); /* Sesuaikan dengan kebutuhan */
+    overflow-y: auto;
+}
+
+.table {
+    margin-bottom: 0;
+    width: 100%;
+}
+
+.table th {
+    background-color: #f8f9fa;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.floating-call-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background-color: #d32525;  /* WhatsApp green color */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.floating-call-btn:hover {
+    transform: scale(1.1);
+    color: white;
+    background-color: #c20606;
+}
+
+.floating-call-btn i {
+    font-size: 24px;
+}
+
