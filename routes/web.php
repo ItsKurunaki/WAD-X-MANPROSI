@@ -23,5 +23,10 @@ Route::get('/penanggulangan', function () {
     return view('penanggulangan');
 });
 
+Route::get('/lengkap', function () {
+    return view('lengkap');
+});
+
 Route::get('/form', [FormController::class, 'index'])->name('form.index');
 Route::post('/form', [FormController::class, 'store'])->name('form.store');
+

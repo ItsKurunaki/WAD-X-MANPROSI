@@ -37,7 +37,6 @@
     <div class="Body">
         <div class="header-container">
             <h1>Panduan Skala Intensitas Gempabumi (SIG) BMKG</h1>
-            <button type="button" class="btn btn-secondary">Contact</button>
         </div>
         <p class="description-box">
             SIG adalah Skala Intensitas Gempabumi. Skala ini menyatakan dampak yang ditimbulkan akibat terjadinya gempabumi. 

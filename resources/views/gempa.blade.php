@@ -57,7 +57,7 @@
             <!-- Kolom untuk Shakemaps -->
             <div class="col-md-6 d-flex justify-content-center align-items-center">
                 <?php
-                echo "<img src=\"https://data.bmkg.go.id/DataMKG/TEWS/" . $data->gempa->Shakemap . "\" alt=\"Shakemaps\" class=\"img-fluid rounded shadow\">";
+                echo "<img src=\"https://data.bmkg.go.id/DataMKG/TEWS/" . $data->gempa->Shakemap . "\" alt=\"Shakemaps\" class=\"img-fluid rounded shadow\" style=\"width: 100%; height: 100%; object-fit: contain;\">";
                 ?>
             </div>
         </div>
@@ -65,9 +65,11 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-FsWuFftHB59nnGqwwPfyF2TlA42bRYzKHwoBbEpoXKl0mg44qxRABhvFMqAfhJfD" crossorigin="anonymous"></script>
     <script src="{{ asset('js/loading.js') }}"></script>
+    
     <a href="{{ url('form') }}" class="floating-call-btn">
         <i class="fas fa-phone"></i>
         <img src="{{ asset('IMG/massage.png') }}" alt="Chat Icon" style="width: 30px; height: 30px;">
     </a>
 </body>
 </html>
+    

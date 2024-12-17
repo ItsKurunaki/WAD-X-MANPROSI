@@ -32,6 +32,6 @@ class FormController extends Controller
             'updated_at' => now()
         ]);
 
-        return redirect()->back()->with('success', 'Data berhasil disimpan!');
+        return redirect()->back()->with('success', 'Survei berhasil dikirim!');
     }
 }
