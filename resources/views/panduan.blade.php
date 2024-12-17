@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="{{ asset('css/panduan.css') }}">
     <link rel="stylesheet" href="{{ asset('css/loading.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <title>Panduan</title>
 </head>
 <body>
@@ -29,6 +30,9 @@
                     <li class="nav-item"><a class="nav-link" href="{{ url('gempa') }}">Gempa</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ url('panduan') }}">Panduan</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ url('penanggulangan') }}">Penanggulangan</a></li>
+                    <li class="nav-item">
+                        <a class="btn btn-danger emergency-btn" href="{{ url('contactdarurat') }}">Contact Darurat</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -136,7 +140,6 @@
     </div>
 
     <a href="{{ url('form') }}" class="floating-call-btn">
-        <i class="fas fa-phone"></i>
         <img src="{{ asset('IMG/massage.png') }}" alt="Chat Icon" style="width: 30px; height: 30px;">
     </a>
 

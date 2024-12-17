@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/loading.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <title>Siaga+</title>
     <style>
  
@@ -31,6 +32,9 @@
                     <li class="nav-item"><a class="nav-link" href="{{ url('gempa') }}">Gempa</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ url('panduan') }}">Panduan</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ url('penanggulangan') }}">Penanggulangan</a></li>
+                    <li class="nav-item">
+                        <a class="btn btn-danger emergency-btn" href="{{ url('contactdarurat') }}">Contact Darurat</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -118,7 +122,6 @@
     </script>
     <script src="{{ asset('js/loading.js') }}"></script>
     <a href="{{ url('form') }}" class="floating-call-btn">
-        <i class="fas fa-phone"></i>
         <img src="{{ asset('IMG/massage.png') }}" alt="Chat Icon" style="width: 30px; height: 30px;">
     </a>
 </body>

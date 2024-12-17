@@ -141,4 +141,22 @@ body {
 .floating-call-btn i {
     font-size: 24px;
 }
+.emergency-btn {
+    margin: 10px;
+    padding: 8px 20px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #d32525;
+    border-color: #d32525;
+    transition: all 0.3s ease;
+    border-radius: 25px;
+}
+
+.emergency-btn:hover {
+    background-color: #c20606;
+    border-color: #c20606;
+    transform: scale(1.05);
+}
 

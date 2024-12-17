@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use App\Models\Form;
 
 class FormController extends Controller
 {
@@ -14,7 +14,7 @@ class FormController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
+        $validatedData = $request->validate([
             'Nama' => 'required',
             'NomorTelepon' => 'required',
             'Asal' => 'required',
@@ -22,16 +22,9 @@ class FormController extends Controller
             'KataKata' => 'required'
         ]);
 
-        DB::table('form')->insert([
-            'Nama' => $request->Nama,
-            'NomorTelepon' => $request->NomorTelepon,
-            'Asal' => $request->Asal,
-            'SkalaGempa' => $request->SkalaGempa,
-            'KataKata' => $request->KataKata,
-            'created_at' => now(),
-            'updated_at' => now()
-        ]);
+        Form::create($validatedData);
 
-        return redirect()->back()->with('success', 'Data berhasil disimpan!');
+        return redirect()->route('form.index')
+            ->with('success', 'Laporan berhasil dikirim!');
     }
-}
+} 
