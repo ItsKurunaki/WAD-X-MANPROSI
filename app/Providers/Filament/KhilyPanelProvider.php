@@ -27,6 +27,7 @@ class KhilyPanelProvider extends PanelProvider
             ->id('khily')
             ->path('khily')
             ->login()
+            ->brandName('Siaga⁺') 
             ->colors([
                 'primary' => Color::Amber,
             ])
