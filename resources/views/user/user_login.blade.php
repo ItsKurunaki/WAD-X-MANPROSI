@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Login</title>
+    <title>User Login</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"> <!-- Menambahkan font Poppins -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
@@ -29,13 +29,17 @@
         }
         .login-box h2 {
             margin-bottom: 1rem;
-            font-weight: 600; /* Menggunakan font weight 600 untuk judul */
+            font-weight: bold;
             text-align: center; /* Memusatkan teks judul */
         }
         .form-control {
             margin-bottom: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem; /* Menambahkan jarak antara label dan input */
         }
         input[type="text"],
+        input[type="email"],
         input[type="password"] {
             width: 100%;
             padding: 0.7rem;
@@ -81,11 +85,11 @@
 <body>
     <div class="login-box">
         <h2>Selamat Datang!</h2>
-        <form action="{{ route('admin.login') }}" method="POST">
+        <form action="{{ route('user.login') }}" method="POST">
             @csrf
             <div class="form-control">
-                <label for="company_id">Company ID</label>
-                <input type="text" id="company_id" name="company_id" placeholder="Company ID" required>
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email" placeholder="E-mail" required>
             </div>
             <div class="form-control">
                 <label for="password">Password</label>
@@ -93,13 +97,16 @@
                     <input type="password" id="password" name="password" placeholder="Password" required>
                     <i class="toggle-password fas fa-eye-slash" onclick="togglePassword('password')"></i>
                 </div>
-            </div>
+                </div>
             <div class="remember-me">
                 <input type="checkbox" id="remember_me" name="remember">
                 <label for="remember_me">Remember Me</label>
             </div>
             <button type="submit">Masuk</button>
         </form>
+        <div style="text-align: center; margin-top: 1rem;">
+            <span>Belum punya akun? <a href="{{ route('user.register') }}">Daftar</a></span>
+        </div>  
     </div>
     <script>
         function togglePassword(inputId) {
