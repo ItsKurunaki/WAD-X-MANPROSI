@@ -14,13 +14,17 @@ Route::group(['prefix' => 'admin'], function() {
     Route::post('/logout', [AdminController::class, 'logout'])->name('admin.logout');
 });
 // Route untuk user
-Route::get('/login', [UserController::class, 'showLoginForm'])->name('user.login');
-Route::post('/login', [UserController::class, 'login']);
-Route::get('/register', [UserController::class, 'register'])->name('user.register');
-Route::post('/logout', [UserController::class, 'logout'])->name('user.logout');
-
-// Route yang memerlukan autentikasi user
-Route::middleware(['auth'])->group(function() {
+Route::prefix('user')->group(function () {
+    Route::get('/login', [UserController::class, 'login'])->name('user.login');
+    Route::post('/login', [UserController::class, 'loginSubmit'])->name('user.login.submit');
+    Route::get('/register', [UserController::class, 'register'])->name('user.register');
+    Route::post('/register', [UserController::class, 'registerSubmit'])->name('user.register.submit');
+    
+    // Protected routes
+    Route::middleware(['auth'])->group(function () {
+        Route::get('/dashboard', [UserController::class, 'dashboard'])->name('user.dashboard');
+        Route::post('/logout', [UserController::class, 'logout'])->name('user.logout');
+    });
 });
 
 // Route yang memerlukan autentikasi admin
