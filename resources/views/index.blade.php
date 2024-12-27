@@ -8,11 +8,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/loading.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/contactdarurat.css') }}">
     <title>Siaga+</title>
     <style>
  
     </style>
-</head>
+</head>     
 <body>
     <div id="loading">
         <div class="spinner"></div>
@@ -31,6 +32,7 @@
                     <li class="nav-item"><a class="nav-link" href="{{ url('gempa') }}">Gempa</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ url('panduan') }}">Panduan</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ url('penanggulangan') }}">Penanggulangan</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url('contactdarurat') }}">Contact Darurat</a></li>
                 </ul>
             </div>
         </div>

@@ -6,10 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('css/panduan.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/loading.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    <title>Panduan</title>
+    <link rel="stylesheet" href="{{ asset('css/loading.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/contactdarurat.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/panduan.css') }}">
+    <title>Siaga+</title>
+    <style>
+ 
+    </style>
 </head>
 <body>
     <div id="loading">
@@ -29,9 +33,11 @@
                     <li class="nav-item"><a class="nav-link" href="{{ url('gempa') }}">Gempa</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ url('panduan') }}">Panduan</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ url('penanggulangan') }}">Penanggulangan</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url('contactdarurat') }}">Contact Darurat</a></li>
                 </ul>
             </div>
         </div>
+    </nav>
     </nav>
 
     <div class="Body">

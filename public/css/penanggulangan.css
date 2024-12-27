@@ -1,7 +1,6 @@
+/* Specific styles for penanggulangan */
 .accordion-item {
     margin-bottom: 1rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
 }
 
 .accordion-button {
@@ -18,4 +17,8 @@
 .accordion-button:focus {
     box-shadow: none;
     border-color: rgba(0,0,0,.125);
+}
+.accordion-header{
+    font-size: 1.5em;
+    font-weight: 600;
 }
