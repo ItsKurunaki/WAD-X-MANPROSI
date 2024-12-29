@@ -190,4 +190,7 @@
     <a href="{{ url('form') }}" class="floating-call-btn">
         <img src="{{ asset('IMG/massage.png') }}" alt="Chat Icon" style="width: 30px; height: 30px;">
     </a>
+
+    @include('layout.footer')
+
 </body>

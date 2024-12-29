@@ -275,5 +275,7 @@
 
     <!-- Add ApexCharts library -->
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
+    @include('layout.footer')
+
 </body>
-</html>
