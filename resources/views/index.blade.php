@@ -80,16 +80,53 @@
                                 <p class="card-text">{{ Str::limit(strip_tags($item->content), 100) }}</p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <small class="text-muted">{{ $item->published_at->format('d M Y') }}</small>
-                                    <a href="#" class="btn btn-danger btn-sm">Baca Selengkapnya</a>
+                                    <a href="" class="btn btn-danger btn-sm">Baca Selengkapnya</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 @endforeach
 
-                <!-- Pagination -->
+                <!-- Pagination with Bootstrap 5 -->
                 <div class="d-flex justify-content-center mt-4">
-                    {{ $news->links() }}
+                    @if($news->hasPages())
+                        <nav aria-label="Page navigation">
+                            <ul class="pagination">
+                                {{-- Previous Page Link --}}
+                                @if($news->onFirstPage())
+                                    <li class="page-item disabled">
+                                        <span class="page-link" aria-hidden="true">&laquo;</span>
+                                    </li>
+                                @else
+                                    <li class="page-item">
+                                        <a class="page-link" href="{{ $news->previousPageUrl() }}" aria-label="Previous">
+                                            <span aria-hidden="true">&laquo;</span>
+                                        </a>
+                                    </li>
+                                @endif
+
+                                {{-- Pagination Elements --}}
+                                @foreach($news->getUrlRange(1, $news->lastPage()) as $page => $url)
+                                    <li class="page-item {{ $page == $news->currentPage() ? 'active' : '' }}">
+                                        <a class="page-link" href="{{ $url }}">{{ $page }}</a>
+                                    </li>
+                                @endforeach
+
+                                {{-- Next Page Link --}}
+                                @if($news->hasMorePages())
+                                    <li class="page-item">
+                                        <a class="page-link" href="{{ $news->nextPageUrl() }}" aria-label="Next">
+                                            <span aria-hidden="true">&raquo;</span>
+                                        </a>
+                                    </li>
+                                @else
+                                    <li class="page-item disabled">
+                                        <span class="page-link" aria-hidden="true">&raquo;</span>
+                                    </li>
+                                @endif
+                            </ul>
+                        </nav>
+                    @endif
                 </div>
             @else
                 <div class="col-12">
@@ -144,5 +181,4 @@
     </a>
 
     @include('layout.footer')
-
 </body>
