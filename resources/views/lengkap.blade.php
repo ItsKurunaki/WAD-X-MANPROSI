@@ -58,13 +58,13 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header d-flex justify-content-between align-items-center">
-                        <h5>Sebaran Gempa 2024</h5>
+                        <h5>Sebaran Gempa</h5>
                         <select id="chartType" class="form-select" style="width: auto;">
                             <option value="time">Berdasarkan Waktu</option>
                             <option value="region">Berdasarkan Daerah</option>
                         </select>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body" style="height: 400px;"> <!-- Added fixed height -->
                         <canvas id="yearlyChart"></canvas>
                     </div>
                 </div>
@@ -75,6 +75,9 @@
     <!-- Add Bootstrap JS and its dependencies -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+
+    <!-- Add Chart.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <!-- Your chart script -->
     <script>
@@ -191,27 +194,185 @@
                     datasets: [{
                         label: 'Jumlah Gempa',
                         data: <?php echo json_encode(array_values($timeData)); ?>,
-                        backgroundColor: redColors.slice(0, 6),
-                        borderColor: redBorders.slice(0, 6),
-                        borderWidth: 1
+                        backgroundColor: colors.blue,
+                        borderColor: colors.blueBorder,
+                        borderWidth: 1,
+                        borderRadius: 6,
+                        barThickness: 30
                     }]
                 },
                 options: {
                     responsive: true,
+                    maintainAspectRatio: false,
                     scales: {
                         y: {
                             beginAtZero: true,
-                            ticks: { stepSize: 1 },
-                            title: { display: true, text: 'Jumlah Gempa' }
+                            ticks: { 
+                                font: { size: 14 },
+                                padding: 10
+                            }
                         },
                         x: {
-                            title: { display: true, text: 'Rentang Waktu (Jam)' }
+                            ticks: { 
+                                font: { size: 14 },
+                                padding: 10
+                            }
                         }
                     },
                     plugins: {
                         title: {
                             display: true,
-                            text: 'Distribusi Gempa Berdasarkan Waktu Kejadian Tahun 2024'
+                            text: 'Distribusi Gempa Berdasarkan Waktu Kejadian Tahun 2024',
+                            font: { size: 20, weight: 'bold' },
+                            padding: 30
+                        },
+                        legend: {
+                            display: true,
+                            labels: {
+                                font: { size: 14 }
+                            }
+                        }
+                    }
+                }
+            };
+        }
+
+        function createRegionChart() {
+            return {
+                type: 'bar',
+                data: {
+                    labels: <?php echo json_encode(array_keys($regionData)); ?>,
+                    datasets: [{
+                        label: 'Jumlah Gempa',
+                        data: <?php echo json_encode(array_values($regionData)); ?>,
+                        backgroundColor: colors.red,
+                        borderColor: colors.redBorder,
+                        borderWidth: 1,
+                        borderRadius: 6,
+                        barThickness: 30
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: { 
+                                font: { size: 14 },
+                                padding: 10
+                            }
+                        },
+                        x: {
+                            ticks: { 
+                                font: { size: 14 },
+                                padding: 10,
+                                maxRotation: 45,
+                                minRotation: 45
+                            }
+                        }
+                    },
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Distribusi Gempa Berdasarkan Wilayah Tahun 2024',
+                            font: { size: 20, weight: 'bold' },
+                            padding: 30
+                        },
+                        legend: {
+                            display: true,
+                            position: 'top',
+                            labels: {
+                                font: { size: 14 }
+                            }
+                        }
+                    }
+                }
+            };
+        }
+
+        function updateChart(type) {
+            if (currentChart) {
+                currentChart.destroy();
+            }
+            currentChart = new Chart(yearlyCtx, type === 'time' ? createTimeChart() : createRegionChart());
+        }
+
+        // Initial chart
+        updateChart('time');
+
+        // Handle dropdown changes
+        document.getElementById('chartType').addEventListener('change', function(e) {
+            updateChart(e.target.value);
+        });
+    });
+    </script>
+
+    <!-- Chart Initialization Script -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const yearlyCtx = document.getElementById('yearlyChart').getContext('2d');
+        let currentChart = null;
+
+        const colors = {
+            red: 'rgba(220, 20, 60, 0.8)',
+            redBorder: 'rgba(220, 20, 60, 1)',
+            redGradient: yearlyCtx.createLinearGradient(0, 0, 0, 400)
+        };
+
+        // Create gradient
+        colors.redGradient.addColorStop(0, 'rgba(220, 20, 60, 0.8)');
+        colors.redGradient.addColorStop(1, 'rgba(220, 20, 60, 0.2)');
+
+        function createTimeChart() {
+            return {
+                type: 'bar',
+                data: {
+                    labels: <?php echo json_encode(array_keys($timeData)); ?>,
+                    datasets: [{
+                        label: 'Jumlah Gempa',
+                        data: <?php echo json_encode(array_values($timeData)); ?>,
+                        backgroundColor: colors.redGradient,
+                        borderColor: colors.redBorder,
+                        borderWidth: 1,
+                        borderRadius: 4,
+                        barThickness: 35
+                    }]
+                },
+                options: {
+                    maintainAspectRatio: false,
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: { 
+                                stepSize: 1,
+                                font: { size: 12 }
+                            },
+                            title: { 
+                                display: true, 
+                                text: 'Jumlah Gempa',
+                                font: { size: 14, weight: 'bold' }
+                            },
+                            grid: {
+                                color: 'rgba(0, 0, 0, 0.1)'
+                            }
+                        },
+                        x: {
+                            title: { 
+                                display: true, 
+                                text: 'Rentang Waktu (Jam)',
+                                font: { size: 14, weight: 'bold' }
+                            },
+                            ticks: { font: { size: 12 } }
+                        }
+                    },
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Distribusi Gempa Berdasarkan Waktu Kejadian Tahun 2024',
+                            font: { size: 16, weight: 'bold' },
+                            padding: 20
                         },
                         legend: { display: false }
                     }
@@ -227,28 +388,48 @@
                     datasets: [{
                         label: 'Jumlah Gempa',
                         data: <?php echo json_encode(array_values($regionData)); ?>,
-                        backgroundColor: redColors,
-                        borderColor: redBorders,
-                        borderWidth: 1
+                        backgroundColor: colors.red,
+                        borderColor: colors.redBorder,
+                        borderWidth: 1,
+                        borderRadius: 4,
+                        barThickness: 20
                     }]
                 },
                 options: {
+                    maintainAspectRatio: false,
                     indexAxis: 'y',
                     responsive: true,
                     scales: {
                         x: {
                             beginAtZero: true,
-                            ticks: { stepSize: 1 },
-                            title: { display: true, text: 'Jumlah Gempa' }
+                            ticks: { 
+                                stepSize: 1,
+                                font: { size: 12 }
+                            },
+                            title: { 
+                                display: true, 
+                                text: 'Jumlah Gempa',
+                                font: { size: 14, weight: 'bold' }
+                            },
+                            grid: {
+                                color: 'rgba(0, 0, 0, 0.1)'
+                            }
                         },
                         y: {
-                            title: { display: true, text: 'Wilayah' }
+                            title: { 
+                                display: true, 
+                                text: 'Wilayah',
+                                font: { size: 14, weight: 'bold' }
+                            },
+                            ticks: { font: { size: 11 } }
                         }
                     },
                     plugins: {
                         title: {
                             display: true,
-                            text: 'Distribusi Gempa Berdasarkan Wilayah Tahun 2024'
+                            text: 'Distribusi Gempa Berdasarkan Wilayah Tahun 2024',
+                            font: { size: 16, weight: 'bold' },
+                            padding: 20
                         },
                         legend: { display: false }
                     }
