@@ -175,6 +175,7 @@
     </script>
     
     <script src="{{ asset('js/loading.js') }}"></script>
+    
     <a href="{{ url('form') }}" class="floating-call-btn">
         <i class="fas fa-phone"></i>
         <img src="{{ asset('IMG/massage.png') }}" alt="Chat Icon" style="width: 30px; height: 30px;">

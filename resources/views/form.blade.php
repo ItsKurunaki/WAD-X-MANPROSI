@@ -56,7 +56,7 @@
 
                             <div class="d-flex gap-3">
                                 <button type="submit" class="btn btn-primary btn-lg px-4">Submit</button>
-                                <a href=""{{ url('index') }}" class="btn btn-secondary btn-lg px-4">
+                                <a href="{{ url('index') }}" class="btn btn-secondary btn-lg px-4">
                                     <i class="fas fa-arrow-left"></i> Kembali
                                 </a>
                             </div>
