@@ -1,42 +1,42 @@
 <style>
 
 .footer {
-    background-color: #d3d3d3; /* Warna abu-abu */
-    padding: 50px; /* Ruang di sekitar footer */
-    text-align: left; /* Konten rata kiri */
-    border-top: 1px solid #ccc; /* Garis pemisah di atas footer */
-    font-size: 0.9rem; /* Ukuran teks lebih kecil */
+    background-color: #d3d3d3; 
+    padding: 50px; 
+    text-align: left; 
+    border-top: 1px solid #ccc; 
+    font-size: 0.9rem; 
 }
 
 .footer-content {
-    display: flex; /* Flexbox untuk layout */
-    align-items: center; /* Selaraskan secara vertikal */
-    justify-content: space-between; /* Jarak antar elemen */
-    flex-wrap: wrap; /* Agar tetap responsif */
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .footer-logo {
-    height: 60px; /* Sesuaikan tinggi logo */
-    width: auto; /* Pertahankan aspek rasio logo */
-    margin-right: 20px; /* Jarak antara logo dan teks */
+    height: 60px; 
+    width: auto; 
+    margin-right: 20px; 
 }
 
 .footer-text {
-    color: #333; /* Warna teks */
+    color: #333;
 }
 
 .footer-text p {
-    margin: 5px 0; /* Jarak antar paragraf */
+    margin: 5px 0; 
 }
 
 .footer-link {
-    color: #007bff; /* Warna tautan (biru) */
-    text-decoration: none; /* Hilangkan garis bawah */
-    margin: 0 5px; /* Jarak antar tautan */
+    color: #007bff; 
+    text-decoration: none; 
+    margin: 0 5px; 
 }
 
 .footer-link:hover {
-    text-decoration: underline; /* Garis bawah saat di-hover */
+    text-decoration: underline; 
 50
 
 </style>
